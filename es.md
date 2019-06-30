@@ -1,40 +1,40 @@
-#######ECMAScript 6
-####ES6 声明变量的方式 let
-let 特点 ：
--1.不存在变量提升(不存在预解析)
+########ECMAScript 6
+#####ES6 声明变量的方式 let
+###let 特点 ：
+1. 不存在变量提升(不存在预解析)
 ``预解析：js代码执行时分两个阶段
 ``编译阶段： var b ，会被提升到当前作用域的最前面
-```执行阶段： b = 5 , 会留在原地等待解析
--2.块级作用域，用 {} 声明 --- let 是在代码块内有效，var 是在全局范围内有效
--3.不能重复声明(在一个代码块中)
+``执行阶段： b = 5 , 会留在原地等待解析
+2. 块级作用域，用 {} 声明 --- let 是在代码块内有效，var 是在全局范围内有效
+3. 不能重复声明(在一个代码块中)
+
+###const 特点：
+1. 不存在变量提升
+2. 块级作用域，用 {} 声明 --- const 是在代码块内有效，var 是在全局范围内有效
+3. 声明一个常量，变量一旦声明，必须赋值 (不能以后赋值)，不能修改
+
+const 声明一个只读变量，声明之后不允许改变。即一旦声明必须初始化，否则会报错
+ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+##暂时性死区
+总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
 
 
+#####模板字符串
+符号表示 `` (反引号) 
+在模板字符串中的空格、换行返回时会保留
 
-#const 特点
--1.不存在变量提升
--2.块级作用域，用 {} 声明 --- const 是在代码块内有效，var 是在全局范围内有效
--3.声明一个常量，变量一旦声明，必须赋值 (不能以后赋值)，不能修改
-``const 声明一个只读变量，声明之后不允许改变。即一旦声明必须初始化，否则会报错
-```ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
-```总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
-
-
-####模板字符串
--符号表示 `` (反引号) 
--在模板字符串中的空格、换行返回时会保留
-
-优点：
-1.可以充当普通字符串
-2.用来字符串拼接 ${} ${数字/字符串/等} 元素添加时必须是 id 名
-定义多行字符串，还可以在字符串中加入变量和表达式
-// es5 拼接
+#优点：
+1. 可以充当普通字符串
+2. 用来字符串拼接 ${} ${数字/字符串/等} 元素添加时必须是 id 名
+  定义多行字符串，还可以在字符串中加入变量和表达式
+``es5 拼接
 var str1 = '你好';
-console.log("我："+str1);
-// es6 拼接
-var str2 = "跨域";
-console.log(`你：${str2}`);
-console.log(`你：${str2 + str1}`); //字符串
-console.log(`你：${33 + 633}`); //数字
+	console.log("我："+str1);
+``es6 拼接
+	var str2 = "跨域";
+	console.log(`你：${str2}`);
+	console.log(`你：${str2 + str1}`); //字符串
+	console.log(`你：${33 + 633}`); //数字
 
 
 解构赋值
@@ -265,88 +265,89 @@ var r = Promise.race([p,p1,p2]);
 console.log(r)
 
 
-Axios
- 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
-基于promise封装的ajax类型的库。----类型和ajax类似，源码利用promise开发
-配置参数：
-URL:接口
-请求类型：get/post(常用) header,put,patch,delete,option (非常用)
-调用：
-axios.get() 基于请求方式get发送请求 axioc.post() 
-get请求发送数据
-1.url?参数
-2.axioc.get('url',{
-params:{ }
-}) 
-返回的数据在then中获取 
-后端发送get请求的方式
-1.axios.get('http://132.232.89.22:3000/list?page=1')
-2.axios.get(url.{params:{}})
+####Axios
+- 是一个基于 promise 的 HTTP 库，可以用在浏览器和 node.js 中。
+- 基于promise封装的ajax类型的库。----类型和ajax类似，源码利用promise开发
+- 配置参数：
+``URL:接口
+``请求类型：get/post(常用) header,put,patch,delete,option (非常用)
+- 调用：
+##axios.get() 基于请求方式get发送请求 axioc.post() 
+- get请求发送数据
+1. url?参数
+2. axioc.get('url',{
+   params:{ }
+  }) 
+  返回的数据在then中获取 
+  后端发送get请求的方式
+- 1.axios.get('http://132.232.89.22:3000/list?page=1')
+- 2.axios.get(url.{params:{}})
 
 var ul = document.getElementById('ul1');
 axios.get('http://132.232.89.22:3000/list?',{
-params:{
-'page':1
+	params:{
+		'page':1
 }
 
-控制台：
-config 本次请求的配置信息
-data 请求返回的数据
-headers 后端返回的请求头
-request ajax实例
-status 响应状态码
-statusText 响应状态描述
+##控制台：
+``config 本次请求的配置信息
+``data 请求返回的数据
+``headers 后端返回的请求头
+``request ajax实例
+``status 响应状态码
+``statusText 响应状态描述
 
-*重点：所有请求方式返回的是promise对象，then方法
-node_modules 项目使用的依赖包、插件、库等
-axios.post() 基于post方式向后端发送请求
-axios.post(url,{
-要发送的数据
-})
-向后端发送的数据都是以 json 格式发送的，相当于把数据放在了请求主题里面
+##*重点：所有请求方式返回的是promise对象，then方法
+	node_modules 项目使用的依赖包、插件、库等
+	axios.post() 基于post方式向后端发送请求
+	axios.post(url,{
+		要发送的数据
+	})
+- 向后端发送的数据都是以 json 格式发送的，相当于把数据放在了请求主题里面
 
 //配置默认的全局URL地址，axios会把其与后边的拼接起来
 axios.defaults.baseURL = 'http://132.232.89.22:3000'; 
 function fn1() {
-return axios.get('/slider')
+	return axios.get('/slider')
 }
 function fn2() {
-return axios.get('/list')
+	return axios.get('/list')
 }
 axios.all([fn1(),fn2()]).then(res=>{
-console.log(res);
+	console.log(res);
 let [arr1,arr2] = res; //解构方法
 // res[0] 数组方法
 // res[1]
 })
 
- 					//axios另类写法 (ajax类似)
+###axios另类写法 (ajax类似)
 axios({
-			/ url:'http://132.232.89.22:3000/addcar',
-baseURL:'http://132.232.89.22:3000',
-url:'/addcar',
-data:{ //向后端发送的数据
-name:'德润定光',
-id:66
-},
-method:'post', //默认get
-headers:{ //自定义请求头
-author:'sss',
-age:30
-},
-timeout:3000, //请求超时 如果请求超过3秒未请求到，那么请求中断
-responseType:'json', //后端返回的数据类型， 默认json
+	url:'http://132.232.89.22:3000/addcar',
+	baseURL:'http://132.232.89.22:3000',
+	url:'/addcar',
+	data:{ //向后端发送的数据
+	name:'德润定光',
+	id:66
+	},
+	method:'post', //默认get
+	headers:{ //自定义请求头
+	author:'sss',
+	age:30
+	},
+	timeout:3000, //请求超时 如果请求超过3秒未请求到，那么请求中断
+	responseType:'json', //后端返回的数据类型， 默认json
 })
 
 
-扩展运算符 ...
+#####扩展运算符 ...
 
-数组的扩展运算符 ：
-1.把数组的项目转化为参数序列 
-2.复制数组
-3.与解构赋值结合使用，用于生成数组
-4.将字符串转为真正的数组
-对象的扩展运算符 ：用于取出参数对象中的所有可遍历属性，拷贝到当前对象中
+###数组的扩展运算符 ：
+- 1.把数组的项目转化为参数序列 
+- 2.复制数组
+- 3.与解构赋值结合使用，用于生成数组
+- 4.将字符串转为真正的数组
+###对象的扩展运算符 ：用于取出参数对象中的所有可遍历属性，拷贝到当前对象中
+
 
 
 
