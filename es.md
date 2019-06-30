@@ -44,15 +44,12 @@ var str1 = '你好';
 console.log("我："+str1);
 
 - es6 拼接
-
+\```
 var str2 = "跨域";
-
 console.log(`你：${str2}`);
-
 console.log(`你：${str2 + str1}`); //字符串
-
 console.log(`你：${33 + 633}`); //数字
-
+\```
 
 ####解构赋值
 - ES6中允许按照一定的模式，从数组或对象中提取需要的值，赋值给一个变量。
