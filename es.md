@@ -1,5 +1,7 @@
 ########ECMAScript 6
-#####ES6 声明变量的方式 let
+
+#####ES6 声明变量的方式
+
 ###let 特点 ：
 - 1.不存在变量提升(不存在预解析)
 ``预解析：js代码执行时分两个阶段
@@ -15,12 +17,15 @@
 
 const 声明一个只读变量，声明之后不允许改变。即一旦声明必须初始化，否则会报错
 ES6 明确规定，如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+
 ##暂时性死区
+
 总之，在代码块内，使用let命令声明变量之前，该变量都是不可用的。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。暂时性死区的本质就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。
 
 
 #####模板字符串
 符号表示 `` (反引号) 
+
 在模板字符串中的空格、换行返回时会保留
 
 #优点：
@@ -46,12 +51,13 @@ console.log(`你：${33 + 633}`); //数字
 可以设置默认值
 顺序： 有赋值找赋值，无赋值找默认值，无默认值则返回undefined
 
-##... 剩余解构 即后面的唯一整体(以数组形式)   
+##... 剩余解构 即后面的唯一整体(以数组形式) 
+
 ##数组解构
-// es5
+- es5
 var arr = [5,16,49,65,98,89,54];
 console.log(arr[0]);
-// es6
+- es6
 const [a,b,c,d=666,e] = [5,16,49]; //可以设置默认值
 console.log(a,b,c);
 const [a1,b1,...c1] = arr; //...剩余解构 即后面的唯一整体(以数组形式)
@@ -60,16 +66,14 @@ console.log(a1,b1,c1);
 
 ##对象解构: {} 对象是无序的，变量名和属性名称对应，如果变量名和属性名不对应，起别名，别名与属性名对应，没有的 undefined
 可以设置默认值
-// 对象解构
-var obj = {
-	name:'ert',
-	age:66,
-	sex:1
-}
-// es5 获取属性值
+
+var obj = {"name":'ert',"age":66,"sex":1}
+
+
+- es5 获取属性值
 var name = obj.name;
 console.log(name);
-// es6
+- es6
 const {sex:ee,age} = obj;   //sex:ee 别名 值不变
 console.log(age,ee);
 const {ss,gg} = obj;       //变量名和属性名要一致， 不存在变量返回undefined
@@ -81,7 +85,7 @@ console.log(ss,gg)
 ##函数解构 ： 函数调用的时候，传入的实参表面上是一个数组，但在传入的那一刻，数组参数被解析为变量 x,y,... 在函数内部，函数感受的值就是变量 x,y,...
 可以设置默认值
 function fun2({s,d=123}) { //形参和变量名要一致，不可起别名
-	console.log(s,d)
+   console.log(s,d)
 }
 fun2({a:33,b:55});
 fun2({s:99});
@@ -89,49 +93,60 @@ fun2({});
 // fun2() 报错
 
 function fun3({s,d=123}={}) { //形参和变量名要一致，不可起别名
-	console.log(s,d)
+    console.log(s,d)
 }
 fun3() //未报错
 
 
-数组新增方法
-find() 		找出第一个符合属性的数组成员，参数是回调函数 数组成员依次这个回调函数，返回第一个返回值为true的数组项， 没有符合的返回undefined
-find(function(item,index,arr){})
-item 数组项
-index 数组索引
-arr 原数组
-map() 		映射 把数组映射成新数组，不改变原数组，参数为回调函数，返回数组
-every() 	返回布尔值 有假则假，全真才真
-some() 		返回布尔值 有真则真，全假才假
-includes() 返回布尔值 直接调用，判断是否包含给定的值
-filter() 	返回新数组 过滤掉不满足条件的值，不改变原数组
-作用 数组去重，去掉空数组项，undefined
-fill() 		使用给定值填充一个新数组 ，用来数组初始化，数组中已有的元素，会被全部抹去。
-第二个参数和第三个参数，用于指定填充的起始位置和结束位置(不包括结束位)
-Array.from() 把类似数组的对象或可遍历的对象转化为数组
+#######数组新增方法
 
-reduce() 	接受一个函数作为参数，函数累加器，函数是用来做运算的。 数组从左向右依次所见，最终计算出一个值
+##find() 		找出第一个符合属性的数组成员，参数是回调函数 数组成员依次这个回调函数，返回第一个返回值为true的数组项， 没有符合的返回undefined
+
+##find(function(item,index,arr){})
+- item 数组项
+- index 数组索引
+- arr 原数组
+
+##map() 		映射 把数组映射成新数组，不改变原数组，参数为回调函数，返回数组
+
+##every() 	返回布尔值 有假则假，全真才真
+
+##some() 		返回布尔值 有真则真，全假才假
+
+##includes() 返回布尔值 直接调用，判断是否包含给定的值
+
+##filter() 	返回新数组 过滤掉不满足条件的值，不改变原数组
+- 作用 数组去重，去掉空数组项，undefined
+
+##fill() 		使用给定值填充一个新数组 ，用来数组初始化，数组中已有的元素，会被全部抹去。
+- 第二个参数和第三个参数，用于指定填充的起始位置和结束位置(不包括结束位)
+
+##Array.from() 把类似数组的对象或可遍历的对象转化为数组
+
+##reduce() 	接受一个函数作为参数，函数累加器，函数是用来做运算的。 数组从左向右依次所见，最终计算出一个值
 reduce(function (prev,next,index,arr) {})
-函数参数 prev:计算初始值或上一次计算的返回值 必选
-next:当前参与计算的值 必选
-index:当前参与计算值的索引
-arr:数组本身
-//购物车
+- 函数参数 prev:计算初始值或上一次计算的返回值 必选
+- next:当前参与计算的值 必选
+- index:当前参与计算值的索引
+- arr:数组本身
+
+- 购物车
 var obj1 = [
-{name:'香蕉',price:10,mount:4},
-{name:'榴莲',price:30,mount:5},
-{name:'芒果',price:3,mount:8}
+   {name:'香蕉',price:10,mount:4},
+   {name:'榴莲',price:30,mount:5},
+   {name:'芒果',price:3,mount:8}
 ];
 var total = obj1.reduce(function (prev,next) { 
-return prev + next.price*next.mount
+   return prev + next.price*next.mount
 },0)
 console.log(total);
 
-reduce 可以传参 参数为prev的初始值 reduce(function(){},intial)
-reduce(function (prev,next,index,arr) {},intial)
+- reduce 可以传参 参数为prev的初始值 reduce(function(){},intial)
+- reduce(function (prev,next,index,arr) {},intial)
 如果传参，为prev的初始值，next的取值为数组第一项
 如果不传参，prev为数组第一项，next顺延取值(数组下一项)
 intial可以为任何值
+
 var a1 = ['name','age'];
 var a2 = ['aaa',45];
 // var aobj = {}; => {name: "aaa", age: 45}
@@ -143,58 +158,64 @@ console.log(aobj)
 
 
 
-箭头函数
+#####箭头函数
+
 // es5 函数
 function name(e) {};
 
 //es6 将function关键字和函数名去掉 ()=>{}
 // 是代码更简洁 
 var fun = ()=>{}
-// 当只有一个参数时：() 可选，可以省略
+
+
+- 当只有一个参数时：() 可选，可以省略
 var fu1 = e => {}
-//没有参数时， () 必选
+- 没有参数时， () 必选
 var fn2 = () => {}
-//多个参数时， () 必选 每个参数用 , 分隔
+- 多个参数时， () 必选 每个参数用 , 分隔
 var fn3 = (e,r,g) => {}
-// 多条语句时 {} 和 return 不能省略
+- 多条语句时 {} 和 return 不能省略
 var fn4 = (e) => {
 for (let i = 0; i < 5; i++) {
 return e+i
 }
 }
-// 只有一条语句， {} 和 return 可以省略
+- 只有一条语句， {} 和 return 可以省略
 var fn5 = (a,b) => a+b; 
 
 
 
-Promise异步编程
+########Promise异步编程
 var ajax = (url,type,callback) => {
-var xhr = new XMLHttpRequest();
-xhr.open(url,type);
-xhr.send();
-xhr.onredaystatechange = () => {
+  var xhr = new XMLHttpRequest();
+  xhr.open(url,type);
+  xhr.send();
+  xhr.onredaystatechange = () => {
 //...监听事态
-callback()
-}
+  callback()
+  }
 }
 ajax('a.php',get,()=>{
-//设置div颜色
+   //设置div颜色
 ajax('',get,()=>{
-//设置宽增加
+   //设置宽增加
 ajax('',get,()=>{
-//设置left
-// ajax(...)...
-})
-})
+   //设置left
+   // ajax(...)...
+    })
+  })
 })
 以上写法称为回调地狱 (一层套一层)
 
 解决方法 ： promise    ES6
-Promise 承诺，解决异步请求，比传统的更强大更合理 构造函数 new Promise()
+##Promise 承诺，解决异步请求，比传统的更强大更合理 构造函数 new Promise()
+
 函数参数是一个立即执行函数,这个函数叫立即执行器(exquter)，执行器有两个参数resolve,reject 也是函数
-resolve作用 将promise对象的状态从 “等待” 变为 “成功” ，即pending变成fulfillde，在异步加载成功时调用，并将操作请求成功的结果作为参数传递出去
+#resolve作用 将promise对象的状态从 “等待” 变为 “成功” ，即pending变成fulfillde，在异步加载成功时调用，并将操作请求成功的结果作为参数传递出去
+
 resolve('zhi') zhi 可以是任意值
-reject作用 将promise对象的状态从 “等待” 变为 “失败” ，即pending变成rejected，在异步加载失败时调用，并将操作请求失败的结果作为参数传递出去
+#reject作用 将promise对象的状态从 “等待” 变为 “失败” ，即pending变成rejected，在异步加载失败时调用，并将操作请求失败的结果作为参数传递出去
+
 reject('zhi') zhi 可以是任意值
 
 promise三种状态：pending 等待中 在创建promise实例时就产生
@@ -233,7 +254,7 @@ console.log(e)
 //永远都会被执行
 })
 
-Promise静态方法
+#####Promise静态方法
 
 Promise.all() 参数是一个数组，返回一个新的promise ，如果数组中promise全成功，新promise状态为成功，有一个失败，新promise状态为失败
 Promise.race() 参数是一个数组，返回一个新的promise, 谁执行快，返回谁
