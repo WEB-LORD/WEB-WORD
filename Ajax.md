@@ -160,7 +160,6 @@ ajax 的生命周期/状态readyState
 305	|Use Proxy	|使用代理。所请求的资源必须通过代理访问
 306	|Unused|	已经被废弃的HTTP状态码
 307	|Temporary Redirect|	临时重定向。与302类似。使用GET请求重定向
-
 400	|Bad Request	|客户端请求的语法错误，服务器无法理解
 401	|Unauthorized	|请求要求用户的身份认证
 402	|Payment Required|	保留，将来使用
@@ -179,7 +178,6 @@ ajax 的生命周期/状态readyState
 415	|Unsupported Media Type|	服务器无法处理请求附带的媒体格式
 416	Requested range not satisfiable	|客户端请求的范围无效
 417	Expectation Failed	|服务器无法满足Expect的请求头信息
-
 500	|Internal Server Error|	服务器内部错误，无法完成请求
 501|Not Implemented	|服务器不支持请求的功能，无法完成请求
 502|	Bad Gateway|	作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应
