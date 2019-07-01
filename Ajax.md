@@ -270,7 +270,6 @@ JSON 比 XML 更小、更快，更易解析。
 <font color=#AA3731 size=7 face="黑体">JOSN.parse()      从字符串中解析出JSON对象</font>
 <font color=#AA3731 size=7 face="黑体">JSON.stringify()  把ISON对象转化为字符串的形式</font>
 
-
 # jsonp     跨域
 ## json with padding ：使用内嵌的形式把json数据获取到，然后就可以进行数据的渲染了
 1. 为什么学jsonp?						只能使用get方式
