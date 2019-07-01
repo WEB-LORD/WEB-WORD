@@ -176,8 +176,8 @@ ajax 的生命周期/状态readyState
 413	|Request Entity Too Large|	由于请求的实体过大，服务器无法处理，因此拒绝请求。为防止客户端的连续请求，服务器可能会关闭连接。如果只是服务器暂时无法处理，则会包含一个Retry-After的响应信息
 414	|Request-URI Too Large	|请求的URI过长（URI通常为网址），服务器无法处理
 415	|Unsupported Media Type|	服务器无法处理请求附带的媒体格式
-416	Requested range not satisfiable	|客户端请求的范围无效
-417	Expectation Failed	|服务器无法满足Expect的请求头信息
+416	|Requested range not satisfiable	|客户端请求的范围无效
+417	|Expectation Failed	|服务器无法满足Expect的请求头信息
 500	|Internal Server Error|	服务器内部错误，无法完成请求
 501|Not Implemented	|服务器不支持请求的功能，无法完成请求
 502|	Bad Gateway|	作为网关或者代理工作的服务器尝试执行请求时，从远程服务器接收到了一个无效的响应
@@ -267,8 +267,8 @@ JSON 比 XML 更小、更快，更易解析。
 ### 书写规则：文件名：xxx.json
   > json数据中最后一个数据不能加 “ , ”
 
-# JOSN.parse()      从字符串中解析出JSON对象
-# JSON.stringify()  把ISON对象转化为字符串的形式
+<font color=#AA3731 size=7 face="黑体">JOSN.parse()      从字符串中解析出JSON对象</font>
+<font color=#AA3731 size=7 face="黑体">JSON.stringify()  把ISON对象转化为字符串的形式</font>
 
 
 # jsonp     跨域
