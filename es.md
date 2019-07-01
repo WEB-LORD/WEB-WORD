@@ -110,7 +110,7 @@ fun3() //未报错
 
 ### find() 		
 > 找出第一个符合属性的数组成员，参数是回调函数 数组成员依次这个回调函数，返回第一个返回值为true的数组项， 没有符合的返回undefined
-## find(function(item,index,arr){})
+#### find(function(item,index,arr){})
 - item 数组项
 - index 数组索引
 - arr 原数组
@@ -171,17 +171,26 @@ console.log(aobj)
 ## 箭头函数
 
 - es5 函数
-`function name(e) {};`
-- es6 将function关键字和函数名去掉 ()=>{}
-> 使代码更简洁 
+> function name(e) {};
+- es6 将function关键字和函数名去掉 
+> ()=>{}
+> 使代码更简洁
+
 `var fun = ()=>{}`
-> 当只有一个参数时：() 可选，可以省略
+
+- 当只有一个参数时：() 可选，可以省略
+
 `var fu1 = e => {}`
-> 没有参数时， () 必选
+
+- 没有参数时， () 必选
+
 `var fn2 = () => {}`
-> 多个参数时， () 必选 每个参数用 , 分隔
+
+- 多个参数时， () 必选 每个参数用 , 分隔
+
 `var fn3 = (e,r,g) => {}`
-> 多条语句时 {} 和 return 不能省略
+
+- 多条语句时 {} 和 return 不能省略
 ```js
 var fn4 = (e) => {
 for (let i = 0; i < 5; i++) {
@@ -189,11 +198,11 @@ for (let i = 0; i < 5; i++) {
    }
 }
 ```
-> 只有一条语句， {} 和 return 可以省略
+- 只有一条语句， {} 和 return 可以省略
 
 `var fn5 = (a,b) => a+b; `
 
-########Promise异步编程
+## Promise异步编程
 ```js
 var ajax = (url,type,callback) => {
   var xhr = new XMLHttpRequest();
@@ -206,15 +215,15 @@ var ajax = (url,type,callback) => {
 }
 ajax('a.php',get,()=>{
    //设置div颜色
-ajax('',get,()=>{
-   //设置宽增加
-ajax('',get,()=>{
-   //设置left
-   // ajax(...)...
-    })
-  })
+   ajax('',get,()=>{
+      //设置宽增加
+      ajax('',get,()=>{
+      //设置left
+      // ajax(...)...
+      })
+   })
 })
-以上写法称为回调地狱 (一层套一层)
+以上写法称为***回调地狱*** (一层套一层)
 ```
 解决方法 ： promise    ES6
 #### Promise 承诺，解决异步请求，比传统的更强大更合理 构造函数 new Promise()
@@ -226,7 +235,7 @@ ajax('',get,()=>{
 - reject作用 将promise对象的状态从 “等待” 变为 “失败” ，即pending变成rejected，在异步加载失败时调用，并将操作请求失败的结果作为参数传递出去
 `reject('zhi') zhi 可以是任意值`
 
-##### promise三种状态：
+#### promise三种状态：
 
 - pending 等待中 在创建promise实例时就产生
 - fulfilled 成功
@@ -235,7 +244,7 @@ ajax('',get,()=>{
 > 其状态只能从pending变成 成功 或 失败，一旦成功不能失败，一旦失败不能成功
 > 每一个promise对象都有 then 方法
 
-##### then() 两个函数(参数) 第一个函数异步调用成功时执行，第二个函数异步调用失败时调用
+#### then() 两个函数(参数) 第一个函数异步调用成功时执行，第二个函数异步调用失败时调用
 
 > 每一个 then 方法都会返回一个新的 promise ,又因为每一个promise对象都有 then 方法，所以可以无限调用 then()方法
 
@@ -243,12 +252,12 @@ ajax('',get,()=>{
 - finally()
 ```js
 var promise = new Promise((resolve,reject)=>{
-console.log('sss');
+   console.log('sss');
 
    resolve和reject 的执行顺序 ：谁在上谁先执行
 
-resolve('then 第一个函数传参'); //调用方法，成功时调用
-reject('then 第二个函数传参'); //失败时调用 
+   resolve('then 第一个函数传参'); //调用方法，成功时调用
+   reject('then 第二个函数传参'); //失败时调用 
 });
 
 promise.then((num)=>{
@@ -261,13 +270,14 @@ console.log(promise);
 > 上面then的简写
 
 var newP = promise.then((f)=>{
-//请求成功的执行函数
-console.log(f)
+
+   //请求成功的执行函数
+   console.log(f)
 }).catch((e)=>{
-//请求失败的执行函数
-console.log(e)
+   //请求失败的执行函数
+   console.log(e)
 }).finally(()=>{
-//永远都会被执行
+   //永远都会被执行
 })
 ```
 #### Promise静态方法
@@ -318,16 +328,19 @@ console.log(r)
 - 调用：
 > axios.get() 基于请求方式get发送请求 axioc.post() 
 - get请求发送数据
-```js
+> 传参方式
+
 1.url?参数
 2.axioc.get('url',{
    params:{ }
   }) 
   返回的数据在then中获取 
   后端发送get请求的方式
-- 1.axios.get('http://132.232.89.22:3000/list?page=1')
-- 2.axios.get(url.{params:{}})
 
+`axios.get('http://132.232.89.22:3000/list?page=1')`
+
+`axios.get(url.{params:{}})`
+```js
 var ul = document.getElementById('ul1'); 
 axios.get('http://132.232.89.22:3000/list?',{
 	params:{
@@ -363,10 +376,10 @@ function fn2() {
 	return axios.get('/list')
 }
 axios.all([fn1(),fn2()]).then(res=>{
-console.log(res);
-let [arr1,arr2] = res; //解构方法
-// res[0] 数组方法
-// res[1]
+   console.log(res);
+   let [arr1,arr2] = res; //解构方法
+   // res[0] 数组方法
+   // res[1]
 })
 ```
 ### axios另类写法 (ajax类似)
@@ -376,13 +389,13 @@ axios({
 	baseURL:'http://132.232.89.22:3000',
 	url:'/addcar',
 	data:{ //向后端发送的数据
-   name:'德润定光',
- 	 id:66
+      name:'德润定光',
+ 	   id:66
 	},
 	method:'post', //默认get
 	headers:{ //自定义请求头
-	author:'sss',
-	age:30
+	   author:'sss',
+	   age:30
 	},
 	timeout:3000, //请求超时 如果请求超过3秒未请求到，那么请求中断
 	responseType:'json', //后端返回的数据类型， 默认json
