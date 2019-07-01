@@ -400,14 +400,13 @@ console.log(r)
   后端发送get请求的方式
 - 1.axios.get('http://132.232.89.22:3000/list?page=1')
 - 2.axios.get(url.{params:{}})
-
-var ul = document.getElementById('ul1');
-
+```
+var ul = document.getElementById('ul1'); 
 axios.get('http://132.232.89.22:3000/list?',{
 	params:{
 		'page':1
 }
-
+```
 ##控制台：
 `` config 本次请求的配置信息
 
@@ -419,89 +418,61 @@ axios.get('http://132.232.89.22:3000/list?',{
 
 `` status 响应状态码
 
-`` statusText 响应状态描述
+   statusText 响应状态描述
 
 ##*重点：所有请求方式返回的是promise对象，then方法
-- node_modules 项目使用的依赖包、插件、库等
-
+> node_modules 项目使用的依赖包、插件、库等
+```js
 axios.post() 基于post方式向后端发送请求
-   
    axios.post(url,{
-   
    要发送的数据
-	
 	})
-- 向后端发送的数据都是以 json 格式发送的，相当于把数据放在了请求主题里面
-
-``配置默认的全局URL地址，axios会把其与后边的拼接起来
-
+   向后端发送的数据都是以 json 格式发送的，相当于把数据放在了请求主题里面
+```
+> 配置默认的全局URL地址，axios会把其与后边的拼接起来
+```js
 axios.defaults.baseURL = 'http://132.232.89.22:3000'; 
-
 function fn1() {
-    
    return axios.get('/slider')
-
 }
-
-function fn2() {
-	
+function fn2() {	
 	return axios.get('/list')
 }
-
 axios.all([fn1(),fn2()]).then(res=>{
-
 console.log(res);
-
 let [arr1,arr2] = res; //解构方法
-
 // res[0] 数组方法
-
 // res[1]
-
 })
-
-###axios另类写法 (ajax类似)
+```
+### axios另类写法 (ajax类似)
+```js
 axios({
-	
 	url:'http://132.232.89.22:3000/addcar',
-	
 	baseURL:'http://132.232.89.22:3000',
-	
 	url:'/addcar',
-	
 	data:{ //向后端发送的数据
-	
    name:'德润定光',
-	
  	 id:66
-	
 	},
-	
 	method:'post', //默认get
-	
 	headers:{ //自定义请求头
-	
 	author:'sss',
-	
 	age:30
-	
 	},
-	
 	timeout:3000, //请求超时 如果请求超过3秒未请求到，那么请求中断
-	
 	responseType:'json', //后端返回的数据类型， 默认json
-
 })
+```
 
+## 扩展运算符 ...
 
-#####扩展运算符 ...
-
-###数组的扩展运算符 ：
+### 数组的扩展运算符 ：
 - 1.把数组的项目转化为参数序列 
 - 2.复制数组
 - 3.与解构赋值结合使用，用于生成数组
 - 4.将字符串转为真正的数组
-###对象的扩展运算符 ：用于取出参数对象中的所有可遍历属性，拷贝到当前对象中
+### 对象的扩展运算符 ：用于取出参数对象中的所有可遍历属性，拷贝到当前对象中
 
 
 
