@@ -25,3 +25,22 @@ data ->表示数据
 - wx:if 和hidden 的区别 频繁切换的时候用hidden 
 - wxml语法参考 
 https://developers.weixin.qq.com/miniprogram/dev/reference/wxml/data.html
+
+
+
+
+
+### 小程序的事件与数据改变
+- bindtap ->普通点击事件（click）
+- catchtap ->防止冒泡 
+> 注意： 小程序数据一定要通过 setData 进行改变 因为小程序是单向数据流 
+```js
+btn(){    //在 js 中，与 data 同级
+    console.log(this.data.num+1)
+    /*小程序事件 必须通过 setData 改变 ，小程序是单向数据流*/ 
+    this.setData({
+      num: this.data.num+1
+    })
+  },
+``` 
+- 小程序事件对应的文档https://developers.weixin.qq.com/miniprogram/dev/framework/view/wxml/event.html 
