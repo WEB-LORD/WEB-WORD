@@ -13,11 +13,11 @@
 4. 一个应用都叫做app  
 app.js 和app.json 是全局配置  
 #### 小程序的标签
-text 文本标签
-view 视图容器（div）
-image 图片标签
-block 无语义标签 不会编译出dom元素
-其他标签 button input 
+- text 文本标签
+- view 视图容器（div）
+- image 图片标签
+- block 无语义标签 不会编译出dom元素
+- 其他标签 button input 
 ### 小程序页面
 页面对应的js 
 data ->表示数据
