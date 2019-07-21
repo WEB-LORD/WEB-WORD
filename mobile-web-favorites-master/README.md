@@ -1,16 +1,11 @@
 Mobile Web Favorites
 ==========
-## 参与贡献
-
-移动前端开发收藏夹，欢迎使用 [Issues](https://github.com/hoosin/mobile-web-favorites/issues/new) 以及 Pull Request
-
-贡献者名单：[https://github.com/hoosin/mobile-web-favorites/graphs/contributors](https://github.com/hoosin/mobile-web-favorites/graphs/contributors)
 
 ## 同类项目
 
 [腾讯移动Web前端知识库](https://github.com/AlloyTeam/Mars)
 
-[maxzhang博客](https://github.com/maxzhang/maxzhang.github.com/issues)
+
 
 ## issues
 [QQ浏览器X5内核问题汇总](https://github.com/hoosin/mobile-web-favorites/issues/11)
@@ -84,7 +79,7 @@ Firefox 浏览器内置了 自定义设计视图 的功能，可以通过 Firefo
 [当前 WEB APP 开发的最佳实践](http://lyric.im/best-practice-for-web-app-development)
 
 
-## 来自[maxzhang](https://github.com/maxzhang "ava")的一些移动端经验总结干货
+## 移动端经验总结干货
 
 [移动Web单页应用开发实践——页面结构化](https://github.com/maxzhang/maxzhang.github.com/issues/8 "ava")
 
@@ -1423,3 +1418,13 @@ PC上开启fiddler，并在设置中勾选“allow remote computers to connect�
 3. 手机上设置代理，代理IP为PC的IP地址，端口为8888（这是fiddler的默认端口）。通常手机上可以直接设置代理，如果没有，可以去下载一个叫ProxyDroid的APP来实现代理的设置。
 
 4. 此时你会发现，用手机上网，走的其实是PC上的fiddler，所有的请求包都会在fiddler中列出来，配合willow使用，即可实现配host，甚至是反向代理的操作。
+
+
+## 参与贡献
+
+移动前端开发收藏夹，欢迎使用 [Issues](https://github.com/hoosin/mobile-web-favorites/issues/new) 以及 Pull Request
+
+贡献者名单：[https://github.com/hoosin/mobile-web-favorites/graphs/contributors](https://github.com/hoosin/mobile-web-favorites/graphs/contributors)
+
+
+[maxzhang博客](https://github.com/maxzhang/maxzhang.github.com/issues)
